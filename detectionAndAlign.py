@@ -3,7 +3,7 @@
 '''
 @author: wujiyang
 @date: 2018-01-31
-@brief: use mycnn.py to do face detection and face alignment work. 
+@brief: use mtcnn.py to do face detection and face alignment work. 
         part of this file is modified from https://github.com/happynear/FaceDatasets/blob/master/CASIA/align_webface.py
 '''
 import cv2
