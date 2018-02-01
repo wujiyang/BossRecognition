@@ -28,9 +28,7 @@ FaceRecognition Model: []()
 
 ## Usage  
 Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti, Python 2.7.12    
-**Requirements:**  
-&nbsp;&nbsp;&nbsp;&nbsp;[BVLC/caffe && pycaffe](https://github.com/BVLC/caffe)     
-&nbsp;&nbsp;&nbsp;&nbsp;GPU with CUDA support (CPU also works but slowly)
+**Requirements:** [BVLC/caffe && pycaffe](https://github.com/BVLC/caffe)  GPU with CUDA support (CPU also works but slowly)
 
 
 
