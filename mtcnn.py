@@ -2,8 +2,8 @@
 #-*- coding:utf-8 -*-
 
 '''
+@author: wujiyang
 @date: 2018-02-01
-@brief: this file is for MTCNN in python version. 
-        All models are released in the repository of MTCNN's official repository.
-        https://github.com/kpzhang93/MTCNN_face_detection_alignment
+@brief: MTCNN implemention in python code . 
+        this file is mainly from [DuinoDu/mtcnn], https://github.com/DuinoDu/mtcnn
 '''
