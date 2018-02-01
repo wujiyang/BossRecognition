@@ -5,7 +5,7 @@
 @date: 2018-02-01
 @brief: extract face image feature with caffe model
 '''
-import os
+
 import cv2
 import math
 import sklearn
@@ -27,22 +27,11 @@ def readImageList(listFile):
 
     return imageList
 
-def dirList(path, allfiles):
-    '''
-    get all files with recursive way, saving the file paths to a result list
-    '''
-    filelist = os.listdir(path)
-    for filename in filelist:
-        filepath = os.path.join(path, filename)
-        if os.path.isdir(filepath):
-            dirList(filepath, allfiles)
-        else:
-            allfiles.append(filepath)
 
 def initFeatureExtractor():
     print 'feature extraction model initilizing...'
-    deployPrototxt = "./caffemodel/ResNet50_SphereFace_Test.prototxt"
-    modelFile = "./caffemodel/vggface2_triplet_iter_120000.caffemodel"
+    deployPrototxt = "./caffemodel/sphereface_deploy_36.prototxt"
+    modelFile = "./caffemodel/sphereface_model_36.caffemodel"
     caffe.set_mode_gpu()
     caffe.set_device(0)
     net = caffe.Net(deployPrototxt, modelFile,caffe.TEST)
@@ -60,7 +49,7 @@ def setTransformer(net):
 
 
 def extractFeature(net, transformer, img): 
-    net.blobs['data'].reshape(1, 3, 224, 224) 
+    net.blobs['data'].reshape(1, 3, 112, 96) 
     transformed_image = transformer.preprocess('data', img)
     net.blobs['data'].data[...] = transformed_image
 
@@ -88,41 +77,18 @@ def cos_dist(a, b):
         return part_up / part_down
 
 
-def loadFaceLib(net, transformer):
-    '''
-    extract the feature of someone who you want to recognize
-    put some images of the one you want to recognize to the folder ./images/ 
-    '''
-    libPath = './images/'
-    allperson = []
-    dirList(libPath, allperson)
-    libFeature = np.zeros((len(allperson), 2048))
-    for i in range(len(allperson)):
-        img = cv2.imread(allperson[i])
-        net.blobs['data'].reshape(1, 3, 224, 224) 
-        transformed_image = transformer.preprocess('data', img)
-        net.blobs['data'].data[...] = transformed_image
-        output = net.forward()
-        feature = np.float64(output['fc5'])
-        libFeature[i] = feature[0]
-
-    return libFeature
-
-        
-
-
 def main():
+    '''
+    test function
+    '''
     net = initFeatureExtractor()
     transformer = setTransformer(net)
-
-    libFeature = loadFaceLib(net, transformer)
-
 
     img = cv2.imread('test1.jpg')
     feature  = extractFeature(net, transformer, img)
     # print feature.shape
     
-    simi = 1 - pw.pairwise_distances(libFeature, feature, metric='cosine')
+    simi = 1 - pw.pairwise_distances(feature, feature, metric='cosine')
     print simi
     print 'max simi:', np.max(simi)
     # simi = cos_dist(feature[0], feature[0])

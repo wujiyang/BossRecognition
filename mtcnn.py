@@ -386,29 +386,24 @@ def initFaceDetector():
 
 
 def main():
-    imglistfile = "imglist.txt"
+    '''
+    function test
+    '''
     minsize, PNet, RNet, ONet, threshold, factor = initFaceDetector()
 
-    f = open(imglistfile, 'r')
-    for imgpath in f.readlines():
-        imgpath = imgpath.split('\n')[0]
-        print "######\n", imgpath
-        img = cv2.imread(imgpath)
-        img_matlab = img.copy()
-        tmp = img_matlab[:,:,2].copy()
-        img_matlab[:,:,2] = img_matlab[:,:,0]
-        img_matlab[:,:,0] = tmp
+    img = cv2.imread('test1.jpg')
+    img_matlab = img.copy()
+    tmp = img_matlab[:,:,2].copy()
+    img_matlab[:,:,2] = img_matlab[:,:,0]
+    img_matlab[:,:,0] = tmp
 
-        boundingboxes, points = detect_face(img_matlab, minsize, PNet, RNet, ONet, threshold, False, factor)
+    boundingboxes, points = detect_face(img_matlab, minsize, PNet, RNet, ONet, threshold, False, factor)
 
-        img = drawBoxes(img, boundingboxes)
-        img = drawPoints(img, points)
-        cv2.imshow('img', img)
-        ch = cv2.waitKey(0) & 0xFF
-        if ch == 27:
-            break
+    img = drawBoxes(img, boundingboxes)
+    img = drawPoints(img, points)
+    cv2.imshow('img', img)
+    cv2.waitKey() 
 
-    f.close()
 
 if __name__ == "__main__":
     main()
