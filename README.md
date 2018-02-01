@@ -20,8 +20,8 @@ FaceRecognition Model: []()
 4. **extractFeature.py**: extract the face feature with an aligned face image.  
 
 
-## Usage
-
+## Usage  
+Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti
 
 
 ## Reference Codes  
