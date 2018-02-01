@@ -15,6 +15,5 @@ FaceRecognition Model: []()
 
 
 
-## Reference Codes  
-1. [happynear的github代码仓库](https://github.com/happynear/MTCNN_face_detection_alignment)  
-2. [DuinoDu/mtcnn in python](https://github.com/DuinoDu/mtcnn)
+## Reference Codes  happynear/MTCNN_face_detection_alignmenthappynear的github代码仓库](https://github.com/happynear/MTCNN_face_detection_alignment)  
+2. MTCNN with Python code: [DuinoDu/mtcnn](https://github.com/DuinoDu/mtcnn)
