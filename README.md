@@ -15,7 +15,7 @@ All the face detection and face recognition algorithms used in this little proje
 
 ## Models  
 FaceDetection Models: [MTCNN Models](https://github.com/kpzhang93/MTCNN_face_detection_alignment)  
-FaceRecognition Model: []()   
+FaceRecognition Model: [wy1iu/sphereface, SphereFace-20](https://github.com/wy1iu/sphereface)   
 
 ## Architecture   
 1. **_init_paths.py**: add pycafffe to PYTHONPATH.  
