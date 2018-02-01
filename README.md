@@ -6,6 +6,7 @@
 
 ## Declaration 
 这个小项目中用到的检测识别算法都来自于github上的开源项目，与实验室自己的人脸识别项目算法无关。  
+ 
 All the face detection and face recognition algorithms used in this little project are from the open source community:github, which have none bussiness with my lab's face recognition projects.  
 
 ## Models  
