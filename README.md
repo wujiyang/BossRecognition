@@ -22,11 +22,15 @@ FaceRecognition Model: []()
 2. **mtcnn.py**: MTCNN implemention in python code.  
 3. **detectionAndAlign.py**: return all the aligned faces when given an image. 
 4. **extractFeature.py**: extract the face feature with an aligned face image.  
-5. **constructMean.py**: constrcut the meanfile according to meanvalue.
+5. **constructMean.py**: constrcut the meanfile according to meanvalue.  
+6. **demo.py**: the full function for face detection, face alignment and face recognition
 
 
 ## Usage  
-Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti
+Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti  
+Requirements:
+    [BVLC/caffe && pycaffe: python interface for caffe](https://github.com/BVLC/caffe)  
+    
 
 
 ## Reference Codes  
