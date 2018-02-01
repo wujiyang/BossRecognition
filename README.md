@@ -18,6 +18,7 @@ FaceRecognition Model: []()
 2. **mtcnn.py**: MTCNN implemention in python code.  
 3. **detectionAndAlign.py**: return all the aligned faces when given an image. 
 4. **extractFeature.py**: extract the face feature with an aligned face image.  
+5. **constructMean.py**: constrcut the meanfile according to meanvalue.
 
 
 ## Usage  
