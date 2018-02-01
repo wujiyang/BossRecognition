@@ -377,7 +377,7 @@ def initFaceDetector():
     caffe_model_path = "./model"
     threshold = [0.6, 0.7, 0.7]
     factor = 0.709
-    caffe.set_mode_cpu()
+    caffe.set_mode_gpu()
     PNet = caffe.Net(caffe_model_path+"/det1.prototxt", caffe_model_path+"/det1.caffemodel", caffe.TEST)
     RNet = caffe.Net(caffe_model_path+"/det2.prototxt", caffe_model_path+"/det2.caffemodel", caffe.TEST)
     ONet = caffe.Net(caffe_model_path+"/det3.prototxt", caffe_model_path+"/det3.caffemodel", caffe.TEST)
