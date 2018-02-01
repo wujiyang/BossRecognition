@@ -18,18 +18,19 @@ FaceDetection Models: [MTCNN Models](https://github.com/kpzhang93/MTCNN_face_det
 FaceRecognition Model: []()   
 
 ## Architecture   
-1. **_init_paths.py**: add cafffe to pythonpath.  
+1. **_init_paths.py**: add pycafffe to PYTHONPATH.  
 2. **mtcnn.py**: MTCNN implemention in python code.  
-3. **detectionAndAlign.py**: return all the aligned faces when given an image. 
+3. **detectionAndAlign.py**: return all the aligned faces with an givenimage. 
 4. **extractFeature.py**: extract the face feature with an aligned face image.  
 5. **constructMean.py**: constrcut the meanfile according to meanvalue.  
 6. **demo.py**: the full function for face detection, face alignment and face recognition
 
 
 ## Usage  
-Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti  
-Requirements:  
-    [BVLC/caffe && pycaffe: python interface for caffe](https://github.com/BVLC/caffe)  
+**Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti, python 2.7.12**  
+**Requirements:**  
+&nbsp;&nbsp;[BVLC/caffe && pycaffe](https://github.com/BVLC/caffe) 
+&nbsp;&nbsp;GPU with CUDA support (CPU also works but slowly)
 
 
 
