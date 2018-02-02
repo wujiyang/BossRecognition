@@ -30,12 +30,14 @@ FaceRecognition Model: [wy1iu/sphereface, SphereFace-20](https://github.com/wy1i
 
 ## Usage  
 Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti, Python 2.7.12    
-**Requirements:** [BVLC/caffe && pycaffe](https://github.com/BVLC/caffe)  GPU with CUDA support (CPU also works but slowly)   
+**Requirements:**  
+> 1. [BVLC/caffe && pycaffe](https://github.com/BVLC/caffe)   
+> 2. GPU with CUDA support (CPU also works but slowly)   
 
 **How to run this:**  
-> 1. download the MTCNN models and shpereface model to model and caffemodel dirtories.
+> 1. download the MTCNN models and shpereface models to the model and caffemodel directories.
 > 2. set your own caffe path in **_init_paths.py**   
-> 3. add some person's pictures you want to recognize to images folder   
+> 3. add some pictures of the one you want to recognize to the images folder   
 > 4. cd BossRecognition  
 > 5. python demo.py
 
