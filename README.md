@@ -24,13 +24,20 @@ FaceRecognition Model: [wy1iu/sphereface, SphereFace-20](https://github.com/wy1i
 4. **extractFeature.py**: extract the face feature with an aligned face image.  
 5. **constructMean.py**: constrcut the meanfile according to meanvalue.  
 6. **demo.py**: the full function for face detection, face alignment and face recognition
+7. **cameraCapture.py**: capture the camera frame by an usb camera.
+8. **processManage.py**: manage the process on linux via python os module.
 
 
 ## Usage  
 Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti, Python 2.7.12    
-**Requirements:** [BVLC/caffe && pycaffe](https://github.com/BVLC/caffe)  GPU with CUDA support (CPU also works but slowly)
+**Requirements:** [BVLC/caffe && pycaffe](https://github.com/BVLC/caffe)  GPU with CUDA support (CPU also works but slowly)   
 
-
+**How to run this:**  
+> 1. download the MTCNN models and shpereface model to model and caffemodel dirtories.
+> 2. set your own caffe path in **_init_paths.py**   
+> 3. add some person's pictures you want to recognize to images folder   
+> 4. cd BossRecognition  
+> 5. python demo.py
 
 ## Reference Codes  
 1. [happynear/MTCNN_face_detection_alignment](https://github.com/happynear/MTCNN_face_detection_alignment)  
