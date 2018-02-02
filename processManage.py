@@ -11,7 +11,6 @@ import psutil
 import signal
 import sys
 
-from PyQt4 import QtGui
 import Tkinter as tk 
 from PIL import Image, ImageTk
 
