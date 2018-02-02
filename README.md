@@ -1,7 +1,7 @@
 # BossRecognition
 识别靠近的Boss，并将桌面切换至工作区  
 
-Recognize the approaching boss and switch the desktop to the workspace.  
+Real-time Boss Recognition and switch the desktop to the workspace.  
 
 ## Backgrounds  
 近期把位置挪到实验室的角落以后，背对门的方向让我很没有安全感。万一老板突然查岗怎么办？哈哈哈，突然想到以前看的博客，做一个老板识别系统并实现桌面程序的秒切。我也来试试。  
