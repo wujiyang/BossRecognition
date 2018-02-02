@@ -43,4 +43,15 @@ Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti, Python 2
 
 ## Reference Codes  
 1. [happynear/MTCNN_face_detection_alignment](https://github.com/happynear/MTCNN_face_detection_alignment)  
-2. MTCNN with Python code: [DuinoDu/mtcnn](https://github.com/DuinoDu/mtcnn)
+2. MTCNN with Python code: [DuinoDu/mtcnn](https://github.com/DuinoDu/mtcnn)     
+
+
+## Recognition Results  
+1. monitor the room using an usb camera  
+![](results/1.jpg)    
+
+2. when someone is coming   
+![](results/2.jpg)   
+
+3. close some programs and open a full screen picture  
+![](results/3.jpg)
