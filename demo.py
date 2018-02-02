@@ -76,6 +76,7 @@ def main():
         cv2.putText(frame, "press 'q' to exit", (10, 30), 0, 1, (255, 0, 0), 1, False)
         alignfaces, frame = detectionAndAlign.fac_detection_alignment(frame, minsize, PNet, RNet, ONet, threshold, factor)
         cv2.imshow('capture',frame)
+        # cv2.imwrite('capture/'+str(j)+'.jpg', frame)
         if cv2.waitKey(40) & 0xFF == ord('q'):
             print 'welcome to use again, good bye~'
             break
@@ -86,9 +87,10 @@ def main():
             simi = 1 - pw.pairwise_distances(libFeature, feature, metric='cosine')
             # print simi
             print 'max simi:', np.max(simi)
-            if(np.max(simi) > 0.7):
+            if(np.max(simi) > 0.68):
                 processManage.closeProcess()
                 # processManage.openProcess()
+                processManage.show_image()
         
     cap.release()
 

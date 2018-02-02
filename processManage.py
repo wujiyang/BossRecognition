@@ -9,6 +9,11 @@
 import os 
 import psutil
 import signal
+import sys
+
+from PyQt4 import QtGui
+import Tkinter as tk 
+from PIL import Image, ImageTk
 
 '''
 just open or close some processes as you wish.
@@ -34,10 +39,22 @@ def closeProcess():
         '''
     # print len(pids)
 
+def show_image(image_path='vscode.jpg'):
+    '''
+    show an image in full screen
+    '''
+    top = tk.Tk()
+    image = Image.open(image_path)
+    photo = ImageTk.PhotoImage(image)
+    label = tk.Label(top)
+    label.pack()
+    label.configure(image = photo )
+    top.mainloop()
 
 def main():
-    closeProcess();
-    openProcess();
+    # closeProcess();
+    # openProcess();
+    show_image();
 
 
 
