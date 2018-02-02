@@ -52,10 +52,15 @@ def fac_detection_alignment(img, minsize, PNet, RNet, ONet, threshold, factor):
     # face detection
     boundingboxes, points = mtcnn.detect_face(img, minsize, PNet, RNet, ONet, threshold, False, factor)
 
-    # face alignment
-    alignfaces = faceAlign(img, points)
+    if(boundingboxes.shape[0] == 0):
+        alignfaces = []
+    else:
+        # face alignment
+        alignfaces = faceAlign(img, points)
+        # original image with facial rects
+        img = mtcnn.drawBoxes(img, boundingboxes)
 
-    return alignfaces
+    return alignfaces, img
 
 
 def main():
@@ -66,8 +71,8 @@ def main():
     minsize, PNet, RNet, ONet, threshold, factor = mtcnn.initFaceDetector()
 
     # read image
-    img = cv2.imread('test1.jpg')
-    alignfaces = fac_detection_alignment(img, minsize, PNet, RNet, ONet, threshold, factor)
+    img = cv2.imread('images/wujiyang-0000438.jpg')
+    alignfaces, img = fac_detection_alignment(img, minsize, PNet, RNet, ONet, threshold, factor)
 
     for i in range(len(alignfaces)):
         cv2.imshow('img', alignfaces[i])

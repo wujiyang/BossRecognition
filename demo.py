@@ -11,6 +11,8 @@ import _init_paths
 import mtcnn
 import detectionAndAlign
 import extractFeature
+import cameraCapture
+import processManage
 
 import cv2
 import os
@@ -41,7 +43,7 @@ def loadFaceLib(net, transformer, minsize, PNet, RNet, ONet, threshold, factor):
     libFeature = np.zeros((len(allperson), 512))
     for i in range(len(allperson)):
         img = cv2.imread(allperson[i])
-        alignfaces = detectionAndAlign.fac_detection_alignment(img, minsize, PNet, RNet, ONet, threshold, factor)
+        alignfaces, img = detectionAndAlign.fac_detection_alignment(img, minsize, PNet, RNet, ONet, threshold, factor)
         # in face lib , one image only has one face
         if len(alignfaces) >= 1:
             feature = extractFeature.extractFeature(net, transformer, alignfaces[0])
@@ -52,28 +54,43 @@ def loadFaceLib(net, transformer, minsize, PNet, RNet, ONet, threshold, factor):
 
 
 def main():
-    # detection model
+    #--------------------------------------------------------
+    # step 1: model initialization
+    #--------------------------------------------------------
     minsize, PNet, RNet, ONet, threshold, factor = mtcnn.initFaceDetector()
-    # feature extraction model
     net = extractFeature.initFeatureExtractor()
     transformer = extractFeature.setTransformer(net)
-    # load facelib feature from lib folder
+
+    #--------------------------------------------------------
+    # step 2: load facelib feature from lib folder
+    #--------------------------------------------------------
     libFeature = loadFaceLib(net, transformer, minsize, PNet, RNet, ONet, threshold, factor)
     print libFeature.shape
 
-    # read image
-    img = cv2.imread('test2.jpg')
-    alignfaces = detectionAndAlign.fac_detection_alignment(img, minsize, PNet, RNet, ONet, threshold, factor)
-    for i in range(len(alignfaces)):
-        cv2.imshow('img', alignfaces[i])
-        cv2.waitKey()
-    
-    # calculate the similarity
-    for i in range(len(alignfaces)):
-        feature  = extractFeature.extractFeature(net, transformer, alignfaces[i])
-        simi = 1 - pw.pairwise_distances(libFeature, feature, metric='cosine')
-        print simi
-        print 'max simi:', np.max(simi)
+    #--------------------------------------------------------
+    # step 3: read image from camera and calculate similarity
+    #--------------------------------------------------------
+    cap = cv2.VideoCapture(0)
+    while(1):
+        frame = cameraCapture.getFrameFromCamera(cap)
+        cv2.putText(frame, "press 'q' to exit", (10, 30), 0, 1, (255, 0, 0), 1, False)
+        alignfaces, frame = detectionAndAlign.fac_detection_alignment(frame, minsize, PNet, RNet, ONet, threshold, factor)
+        cv2.imshow('capture',frame)
+        if cv2.waitKey(40) & 0xFF == ord('q'):
+            print 'welcome to use again, good bye~'
+            break
+            cv2.destroyAllWindows()
+        # calculate the similarity
+        for i in range(len(alignfaces)):
+            feature  = extractFeature.extractFeature(net, transformer, alignfaces[i])
+            simi = 1 - pw.pairwise_distances(libFeature, feature, metric='cosine')
+            # print simi
+            print 'max simi:', np.max(simi)
+            if(np.max(simi) > 0.7):
+                processManage.closeProcess()
+                # processManage.openProcess()
+        
+    cap.release()
 
 
 if __name__ == "__main__":
