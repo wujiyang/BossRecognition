@@ -42,7 +42,9 @@ Runtime environment: Ubuntu 16.04.3 LTS with GPU of Geforce GTX 1080Ti, Python 2
 2. MTCNN with Python code: [DuinoDu/mtcnn](https://github.com/DuinoDu/mtcnn)     
 
 
-## Recognition Results  
+## Recognition Results    
+0. sketch map  
+![](results/0.jpg)
 1. monitor the room using an usb camera  
 ![](results/1.jpg)    
 
