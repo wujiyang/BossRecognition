@@ -14,7 +14,7 @@ FaceDetection Models: [MTCNN Models](https://github.com/kpzhang93/MTCNN_face_det
 FaceRecognition Model: [wy1iu/sphereface, SphereFace-20](https://github.com/wy1iu/sphereface)   
 
 ## Architecture   
-1. **_init_paths.py**: add pycafffe to PYTHONPATH.  
+1. **_init_paths.py**: add pycaffe to PYTHONPATH.  
 2. **mtcnn.py**: MTCNN implemention in python code.  
 3. **detectionAndAlign.py**: return all the aligned faces with an givenimage. 
 4. **extractFeature.py**: extract the face feature with an aligned face image.  
