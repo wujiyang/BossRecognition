@@ -11,6 +11,9 @@ import psutil
 import signal
 import Tkinter
 import platform
+import sys
+
+import Tkinter as tk 
 from PIL import Image, ImageTk
 
 
